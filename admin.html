@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love Quiz Admin Panel</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; background: #fff0f6; color: #333; }
+  h1 { text-align: center; color: #d6336c; }
+  #loginDiv, #contentDiv { max-width: 600px; margin: auto; }
+  label, input { display: block; width: 100%; margin-top: 15px; font-size: 1em; }
+  input[type=password], button { padding: 10px; border-radius: 6px; border: 1px solid #ccc; }
+  button { background: #d6336c; color: white; font-weight: bold; cursor: pointer; border: none; margin-top: 20px; }
+  button:hover { background: #a42a53; }
+  table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+  th, td { border: 1px solid #d6336c; padding: 8px; text-align: left; font-size: 0.9em; }
+  th { background: #f8bbd0; }
+  pre { white-space: pre-wrap; word-wrap: break-word; }
+  #logoutBtn { margin-top: 15px; background: #666; }
+  #logoutBtn:hover { background: #444; }
+  .warning { color: red; text-align: center; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Love Quiz Admin Panel 🔐</h1>
+
+<div id="loginDiv">
+  <label for="adminPass">Enter Admin Password:</label>
+  <input type="password" id="adminPass" placeholder="Password" />
+  <button id="loginBtn">Login</button>
+  <div id="loginMsg" class="warning"></div>
+</div>
+
+<div id="contentDiv" style="display:none;">
+  <button id="logoutBtn">Logout</button>
+  <h2>Submitted Love Quiz Answers</h2>
+  <table id="submissionsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Time</th>
+        <th>Your Name</th>
+        <th>Partner's Name</th>
+        <th>Answers</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+  const ADMIN_PASSWORD = 'love123'; // Change this password before deploying!
+
+  const loginDiv = document.getElementById('loginDiv');
+  const contentDiv = document.getElementById('contentDiv');
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const adminPass = document.getElementById('adminPass');
+  const loginMsg = document.getElementById('loginMsg');
+  const submissionsTableBody = document.querySelector('#submissionsTable tbody');
+
+  function showSubmissions() {
+    submissionsTableBody.innerHTML = '';
+    let submissions = JSON.parse(localStorage.getItem('loveQuizSubmissions') || '[]');
+    if(submissions.length === 0) {
+      submissionsTableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No submissions yet.</td></tr>';
+      return;
+    }
+    submissions.forEach(sub => {
+      const answers = sub.answers;
+      let answersText = '';
+      for(const q in answers) {
+        if(q === 'yourName' || q === 'partnerName') continue;
+        answersText += `<b>${q}:</b> ${answers[q]}<br>`;
+      }
+      submissionsTableBody.innerHTML += `<tr>
+        <td>${sub.id}</td>
+        <td>${sub.submittedAt}</td>
+        <td>${answers.yourName || ''}</td>
+        <td>${answers.partnerName || ''}</td>
+        <td>${answersText}</td>
+      </tr>`;
+    });
+  }
+
+  loginBtn.onclick = () => {
+    if(adminPass.value === ADMIN_PASSWORD) {
+      loginDiv.style.display = 'none';
+      contentDiv.style.display = 'block';
+      loginMsg.textContent = '';
+      showSubmissions();
+    } else {
+      loginMsg.textContent = 'Incorrect password!';
+    }
+  };
+
+  logoutBtn.onclick = () => {
+    adminPass.value = '';
+    loginDiv.style.display = 'block';
+    contentDiv.style.display = 'none';
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Love Quiz & Calculator 💖</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; background: #fff0f6; color: #333; }
+  h1, h2 { text-align: center; color: #d6336c; }
+  label { display: block; margin-top: 15px; font-weight: bold; }
+  input[type=text], select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; border-radius: 5px; border: 1px solid #ccc; }
+  .question { margin-top: 20px; }
+  button { margin-top: 25px; background: #d6336c; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.1em; }
+  button:hover { background: #a42a53; }
+  .option { margin: 6px 0; }
+  .footer { margin-top: 40px; text-align: center; font-size: 0.9em; color: #a42a53; }
+  #loveScoreResult { text-align: center; font-size: 1.5em; margin-top: 20px; color: #b33; }
+</style>
+</head>
+<body>
+
+<h1>Love Quiz & Calculator 💖</h1>
+
+<!-- Love Calculator -->
+<h2>Love Calculator</h2>
+<label for="calcName1">Your Name:</label>
+<input type="text" id="calcName1" placeholder="Enter your name" />
+<label for="calcName2">Partner's Name:</label>
+<input type="text" id="calcName2" placeholder="Enter partner's name" />
+<button type="button" id="calcBtn">Calculate Love %</button>
+<div id="loveScoreResult"></div>
+
+<hr style="margin: 30px 0;" />
+
+<form id="quizForm">
+
+  <label for="yourName">Your Name:</label>
+  <input type="text" id="yourName" name="yourName" required />
+
+  <label for="partnerName">Your Partner’s Name:</label>
+  <input type="text" id="partnerName" name="partnerName" required />
+
+  <!-- Questions start -->
+  <div class="question">
+    <label>1. What do you like in your partner’s smile?</label>
+    <div class="option"><input type="radio" name="q1" value="Bright and happy" required /> Bright and happy</div>
+    <div class="option"><input type="radio" name="q1" value="Soft and gentle" /> Soft and gentle</div>
+    <div class="option"><input type="radio" name="q1" value="Shy and sweet" /> Shy and sweet</div>
+    <div class="option"><input type="radio" name="q1" value="Playful and warm" /> Playful and warm</div>
+  </div>
+
+  <div class="question">
+    <label>2. What do you like in your partner’s way of expressing love?</label>
+    <div class="option"><input type="radio" name="q2" value="Caring words" required /> Caring words</div>
+    <div class="option"><input type="radio" name="q2" value="Small surprises" /> Small surprises</div>
+    <div class="option"><input type="radio" name="q2" value="Quiet moments" /> Quiet moments</div>
+    <div class="option"><input type="radio" name="q2" value="Warm hugs" /> Warm hugs</div>
+  </div>
+
+  <div class="question">
+    <label>3. How do you feel when your partner holds your hand? 🤝</label>
+    <div class="option"><input type="radio" name="q3" value="Safe and loved" required /> Safe and loved</div>
+    <div class="option"><input type="radio" name="q3" value="Happy and excited" /> Happy and excited</div>
+    <div class="option"><input type="radio" name="q3" value="Calm and peaceful" /> Calm and peaceful</div>
+    <div class="option"><input type="radio" name="q3" value="Close and connected" /> Close and connected</div>
+  </div>
+
+  <div class="question">
+    <label>4. Would you rather cuddle all day or talk all night? ☁️🌙</label>
+    <div class="option"><input type="radio" name="q4" value="Cuddle all day" required /> Cuddle all day</div>
+    <div class="option"><input type="radio" name="q4" value="Talk all night" /> Talk all night</div>
+    <div class="option"><input type="radio" name="q4" value="Both" /> Both</div>
+    <div class="option"><input type="radio" name="q4" value="Just be together" /> Just be together</div>
+  </div>
+
+  <div class="question">
+    <label>5. What’s your favorite memory with your partner? 🖼️</label>
+    <div class="option"><input type="radio" name="q5" value="Laughing together" required /> Laughing together</div>
+    <div class="option"><input type="radio" name="q5" value="Going on trips" /> Going on trips</div>
+    <div class="option"><input type="radio" name="q5" value="Quiet times" /> Quiet times</div>
+    <div class="option"><input type="radio" name="q5" value="Special moments" /> Special moments</div>
+  </div>
+
+  <div class="question">
+    <label>6. If your partner becomes silent, what will you do first? 🤫❤️</label>
+    <div class="option"><input type="radio" name="q6" value="Give a hug" required /> Give a hug</div>
+    <div class="option"><input type="radio" name="q6" value="Make a joke" /> Make a joke</div>
+    <div class="option"><input type="radio" name="q6" value="Wait patiently" /> Wait patiently</div>
+    <div class="option"><input type="radio" name="q6" value="Ask gently" /> Ask gently</div>
+  </div>
+
+  <div class="question">
+    <label>7. Do you believe your partner understands your feelings without saying a word? 😌</label>
+    <div class="option"><input type="radio" name="q7" value="Yes, always" required /> Yes, always</div>
+    <div class="option"><input type="radio" name="q7" value="Most of the time" /> Most of the time</div>
+    <div class="option"><input type="radio" name="q7" value="Sometimes" /> Sometimes</div>
+    <div class="option"><input type="radio" name="q7" value="Not really" /> Not really</div>
+  </div>
+
+  <div class="question">
+    <label>8. What’s something your partner does that makes you blush? 😳</label>
+    <div class="option"><input type="radio" name="q8" value="Sweet words" required /> Sweet words</div>
+    <div class="option"><input type="radio" name="q8" value="Loving looks" /> Loving looks</div>
+    <div class="option"><input type="radio" name="q8" value="Cute messages" /> Cute messages</div>
+    <div class="option"><input type="radio" name="q8" value="Gentle kisses" /> Gentle kisses</div>
+  </div>
+
+  <div class="question">
+    <label>9. Would you choose a long drive or a cozy movie night together? 🚗🎬</label>
+    <div class="option"><input type="radio" name="q9" value="Long drive" required /> Long drive</div>
+    <div class="option"><input type="radio" name="q9" value="Movie night" /> Movie night</div>
+    <div class="option"><input type="radio" name="q9" value="Both" /> Both</div>
+    <div class="option"><input type="radio" name="q9" value="Just being with them" /> Just being with them</div>
+  </div>
+
+  <div class="question">
+    <label>10. What kind of message from your partner makes you smile instantly? 💬😊</label>
+    <div class="option"><input type="radio" name="q10" value="Good morning" required /> Good morning</div>
+    <div class="option"><input type="radio" name="q10" value="Thinking of you" /> Thinking of you</div>
+    <div class="option"><input type="radio" name="q10" value="Funny memes" /> Funny memes</div>
+    <div class="option"><input type="radio" name="q10" value="Can’t wait to see you" /> Can’t wait to see you</div>
+  </div>
+
+  <div class="question">
+    <label>11. If your partner is sad, what’s your first move to make them happy? 💡💓</label>
+    <div class="option"><input type="radio" name="q11" value="Make their favorite food" required /> Make their favorite food</div>
+    <div class="option"><input type="radio" name="q11" value="Give a warm hug" /> Give a warm hug</div>
+    <div class="option"><input type="radio" name="q11" value="Tell a joke" /> Tell a joke</div>
+    <div class="option"><input type="radio" name="q11" value="Listen carefully" /> Listen carefully</div>
+  </div>
+
+  <div class="question">
+    <label>12. What nickname do you secretly love being called? 🐻💞</label>
+    <div class="option"><input type="radio" name="q12" value="Babe" required /> Babe</div>
+    <div class="option"><input type="radio" name="q12" value="Cutie" /> Cutie</div>
+    <div class="option"><input type="radio" name="q12" value="Honey" /> Honey</div>
+    <div class="option"><input type="radio" name="q12" value="Love" /> Love</div>
+  </div>
+
+  <div class="question">
+    <label>13. What’s your favorite thing about being in love? 💘</label>
+    <div class="option"><input type="radio" name="q13" value="Feeling happy" required /> Feeling happy</div>
+    <div class="option"><input type="radio" name="q13" value="Being understood" /> Being understood</div>
+    <div class="option"><input type="radio" name="q13" value="Sharing laughter" /> Sharing laughter</div>
+    <div class="option"><input type="radio" name="q13" value="Never feeling alone" /> Never feeling alone</div>
+  </div>
+
+  <div class="question">
+    <label>14. How do you show love without saying “I love you”? 💌</label>
+    <div class="option"><input type="radio" name="q14" value="Cooking for them" required /> Cooking for them</div>
+    <div class="option"><input type="radio" name="q14" value="Leaving notes" /> Leaving notes</div>
+    <div class="option"><input type="radio" name="q14" value="Giving hugs" /> Giving hugs</div>
+    <div class="option"><input type="radio" name="q14" value="Doing kind things" /> Doing kind things</div>
+  </div>
+
+  <div class="question">
+    <label>15. Do you think love is more about words or actions? 🎭</label>
+    <div class="option"><input type="radio" name="q15" value="Actions" required /> Actions</div>
+    <div class="option"><input type="radio" name="q15" value="Words" /> Words</div>
+    <div class="option"><input type="radio" name="q15" value="Both" /> Both</div>
+    <div class="option"><input type="radio" name="q15" value="Depends" /> Depends</div>
+  </div>
+
+  <div class="question">
+    <label>16. When do you miss your partner the most? 🕰️</label>
+    <div class="option"><input type="radio" name="q16" value="When I’m happy" required /> When I’m happy</div>
+    <div class="option"><input type="radio" name="q16" value="At night" /> At night</div>
+    <div class="option"><input type="radio" name="q16" value="Hearing our song" /> Hearing our song</div>
+    <div class="option"><input type="radio" name="q16" value="Anytime they’re away" /> Anytime they’re away</div>
+  </div>
+
+  <div class="question">
+    <label>17. If you could pause a moment forever with your partner, which one would it be? ⏸️💫</label>
+    <div class="option"><input type="radio" name="q17" value="First kiss" required /> First kiss</div>
+    <div class="option"><input type="radio" name="q17" value="Laughing together" /> Laughing together</div>
+    <div class="option"><input type="radio" name="q17" value="Quiet cuddles" /> Quiet cuddles</div>
+    <div class="option"><input type="radio" name="q17" value="Saying “I love you”" /> Saying “I love you”</div>
+  </div>
+
+  <div class="question">
+    <label>18. How would you describe your love story in one word? 🖋️</label>
+    <div class="option"><input type="radio" name="q18" value="Magical" required /> Magical</div>
+    <div class="option"><input type="radio" name="q18" value="Adventurous" /> Adventurous</div>
+    <div class="option"><input type="radio" name="q18" value="Cozy" /> Cozy</div>
+    <div class="option"><input type="radio" name="q18" value="Forever" /> Forever</div>
+  </div>
+
+  <div class="question">
+    <label>19. Do you think your partner is your soulmate? 🌈</label>
+    <div class="option"><input type="radio" name="q19" value="Yes" required /> Yes</div>
+    <div class="option"><input type="radio" name="q19" value="Maybe" /> Maybe</div>
+    <div class="option"><input type="radio" name="q19" value="Not sure" /> Not sure</div>
+    <div class="option"><input type="radio" name="q19" value="No" /> No</div>
+  </div>
+
+  <div class="question">
+    <label>20. How do you call your love secretly? 🤫💖</label>
+    <div class="option"><input type="radio" name="q20" value="Babe" required /> Babe</div>
+    <div class="option"><input type="radio" name="q20" value="Cutie" /> Cutie</div>
+    <div class="option"><input type="radio" name="q20" value="Honey" /> Honey</div>
+    <div class="option"><input type="radio" name="q20" value="My love" /> My love</div>
+  </div>
+
+  <button type="submit">Submit Answers</button>
+</form>
+
+<script>
+  // Love Calculator Logic
+  function loveCalculator(name1, name2) {
+    // Simple fun hash for love percentage (0-100)
+    if (!name1 || !name2) return 0;
+    let combined = name1.toLowerCase().trim() + name2.toLowerCase().trim();
+    let sum = 0;
+    for (let i = 0; i < combined.length; i++) {
+      sum += combined.charCodeAt(i);
+    }
+    return (sum % 101); // 0 to 100%
+  }
+
+  const calcBtn = document.getElementById('calcBtn');
+  const loveScoreResult = document.getElementById('loveScoreResult');
+
+  calcBtn.addEventListener('click', () => {
+    const name1 = document.getElementById('calcName1').value;
+    const name2 = document.getElementById('calcName2').value;
+    if (!name1 || !name2) {
+      loveScoreResult.textContent = 'Please enter both names!';
+      loveScoreResult.style.color = 'red';
+      return;
+    }
+    const score = loveCalculator(name1, name2);
+    loveScoreResult.style.color = '#b33';
+    loveScoreResult.textContent = `💕 Your Love Compatibility is: ${score}% 💕`;
+  });
+
+  // Quiz form submit logic
+  const form = document.getElementById('quizForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Gather form data
+    const formData = new FormData(form);
+    let answers = {};
+    for (const [key, value] of formData.entries()) {
+      answers[key] = value;
+    }
+
+    // Get all previous submissions from localStorage
+    let submissions = JSON.parse(localStorage.getItem('loveQuizSubmissions') || '[]');
+
+    // Add new submission
+    submissions.push({
+      id: Date.now(),
+      submittedAt: new Date().toLocaleString(),
+      answers,
+    });
+
+    // Save back to localStorage
+    localStorage.setItem('loveQuizSubmissions', JSON.stringify(submissions));
+
+    alert('Thank you! Your answers have been submitted.');
+
+    form.reset();
+    loveScoreResult.textContent = '';
+    window.scrollTo(0, 0);
+  });
+</script>
+
+<div class="footer">
+  Made with ❤️ by Your Love Quiz
+</div>
+
+</body>
+</html>
